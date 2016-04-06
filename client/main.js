@@ -1,10 +1,13 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import todosList from '../imports/components/todosList/todoList';
+import '../imports/startup/accounts-config.js';
 
 angular.module('simple-todos', [
   angularMeteor,
-  todosList.name
+  todosList.name,
+  'accounts.ui'
+
 ]);
 
 function onReady() {
@@ -17,9 +20,3 @@ if (Meteor.isCordova) {
   angular.element(document).ready(onReady);
 }
 
-if (Meteor.isServer) {
-  
-  Inject.rawModHtml('doSomething', function(html) {
-    return html.replace(/<html>/, '<!-- HTML 5 -->\n<html class="no-js" lang="en">');
-  });
-}
