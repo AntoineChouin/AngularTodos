@@ -1,13 +1,7 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import {
-  Tasks
-}
-from '../../api/tasks.js';
-import {
-  Meteor
-}
-from 'meteor/meteor';
+import {Tasks} from '../../api/tasks.js';
+import { Meteor } from 'meteor/meteor';
 
 import template from './todoList.html';
 
@@ -21,39 +15,38 @@ class TodosListCtrl {
 
     this.helpers({
       tasks() {
-          const selector = {};
+        const selector = {};
 
-          // If hide completed is checked, filter tasks
-          if (this.getReactively('hideCompleted')) {
-            selector.checked = {
-              $ne: true
-            };
-          }
-
-          // Show newest tasks at the top
-          return Tasks.find(selector, {
-            sort: {
-              createdAt: -1
-            }
-          });
-        },
-        incompleteCount() {
-          return Tasks.find({
-            checked: {
-              $ne: true
-            }
-          }).count();
-        },
-        currentUser() {
-          return Meteor.user();
+        // If hide completed is checked, filter tasks
+        if (this.getReactively('hideCompleted')) {
+          selector.checked = {
+            $ne: true
+          };
         }
+
+        // Show newest tasks at the top
+        return Tasks.find(selector, {
+          sort: {
+            createdAt: -1
+          }
+        });
+      },
+      incompleteCount() {
+        return Tasks.find({
+          checked: {
+            $ne: true
+          }
+        }).count();
+      },
+      currentUser() {
+        return Meteor.user();
+      }
     })
   }
 
   addTask(newTask) {
     // Insert a task into the collection
     Meteor.call('tasks.insert', newTask);
-
 
     // Clear form
     this.newTask = '';
@@ -62,13 +55,11 @@ class TodosListCtrl {
   setChecked(task) {
     // Set the checked property to the opposite of its current value
     Meteor.call('tasks.setChecked', task._id, !task.checked);
-
   }
 
   removeTask(task) {
     Meteor.call('tasks.remove', task._id);
   }
-
 
   setPrivate(task) {
     Meteor.call('tasks.setPrivate', task._id, !task.private);
@@ -82,3 +73,7 @@ export default angular.module('todosList', [
     templateUrl: 'imports/components/todosList/todoList.html',
     controller: ['$scope', TodosListCtrl]
   });
+
+$( "#collapseExample" ).click(function() {
+  alert( "Handler for .click() called." );
+});

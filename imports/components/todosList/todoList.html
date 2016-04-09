@@ -6,26 +6,51 @@
   </label>
 
   <login-buttons></login-buttons>
+ 
+  <form class="new-task awesome-form form-inline" ng-submit="$ctrl.addTask($ctrl.newTask)" ng-show="$ctrl.currentUser">
+    <div class="input-group">
+        <input ng-model="$ctrl.newTask" text="text" >
+        <label>Enter Your Email..</label>
+      </div>
 
-  <form class="new-task" ng-submit="$ctrl.addTask($ctrl.newTask)" ng-show="$ctrl.currentUser">
-    <input ng-model="$ctrl.newTask" type="text" name="text" placeholder="Type to add new tasks" />
   </form>
 
 </header>
 
-<ul>
-  <li ng-repeat="task in $ctrl.tasks" ng-class="{'checked': task.checked, 'private': task.private}">
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="task in $ctrl.tasks" ng-class="{'checked': task.checked, 'private': task.private, 'id':task}">
 
-    <button class="delete" ng-click="$ctrl.removeTask(task)">&times;</button>
-
-    <input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)" class="toggle-checked" />
-
-    <span class="text">
+    <div class="sectionColle target">
+      <a class="" role="button" data-toggle="collapse" href="#{{ task._id}}" aria-expanded="false" aria-controls="collapseExample">
+        <span class="text">
       <strong>{{task.username}}</strong> - {{task.text}}
     </span>
+      </a>
 
-    <button class="toggle-private" ng-click="$ctrl.setPrivate(task)" ng-show="task.owner === $ctrl.currentUser._id">
-      {{task.private == true ? "Private" : "Public"}}
-    </button>
+      <div class="collapse" id="{{task._id}}">
+        <div class="well">
+          <button class="delete" ng-click="$ctrl.removeTask(task)">
+            <i class="fa fa-times-circle"></i>
+          </button>
+
+          <div class="btn-group" data-toggle="buttons">
+
+            <label class="btn btn-primary active">
+              <input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)" class="toggle-checked" /> C'est check
+            </label>
+
+            <button class="toggle-private btn btn-warning" ng-click="$ctrl.setPrivate(task)" ng-show="task.owner === $ctrl.currentUser._id">
+              {{task.private == true ? "Private" : "Public"}}
+            </button>
+
+            <span>
+              
+              
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </li>
 </ul>

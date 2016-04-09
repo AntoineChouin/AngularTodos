@@ -20,3 +20,15 @@ if (Meteor.isCordova) {
   angular.element(document).ready(onReady);
 }
 
+if (Meteor.isClient) {
+  $(function () {
+    $('.awesome-form input').focusout(function () {
+      var text_val = $(this).val();
+      if (text_val == '') {
+        $(this).removeClass('has-value');
+      } else {
+        $(this).addClass('has-value');
+      }
+    });
+  });
+}
