@@ -4,22 +4,15 @@ body {
   background-image: -webkit-linear-gradient(top, #315481, #918e82 100%);
   background-image: linear-gradient(to bottom, #315481, #918e82 100%);
   background-attachment: fixed;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0;
+  
     margin: 0;
-  font-size: 14px;
+  padding: 70px;
 }
+/*http://bootsnipp.com/snippets/featured/fancy-sidebar-navigation*/
 
-.container {
-  margin: 0 auto;
-  min-height: 100%;
-  background: white;
-}
-
+img{ 
+max-width: 5%;
+max-height: 5%;}
 header {
   background: #d2edf4;
   background-image: -webkit-linear-gradient(top, #d0edf5, #e1e5f0 100%);
@@ -54,12 +47,15 @@ form {
   border: none;
   position: relative;
 }
-
-li {
+li.list-group-item{
   position: relative;
   list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
+  }
+
+li {
+  
   .text {
     margin-left: 10px;
   }
@@ -177,3 +173,6 @@ section.col-md-12 input.btn {
   margin: 5% 2em;
   width: 100%;
 }
+
+
+

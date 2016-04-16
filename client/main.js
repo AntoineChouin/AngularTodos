@@ -7,11 +7,12 @@ angular.module('simple-todos', [
   angularMeteor,
   todosList.name,
   'accounts.ui'
-
 ]);
+
 
 function onReady() {
   angular.bootstrap(document, ['simple-todos']);
+//  angular.bootstrap(document, ['navigation']);
 }
 
 if (Meteor.isCordova) {
@@ -32,3 +33,4 @@ if (Meteor.isClient) {
     });
   });
 }
+

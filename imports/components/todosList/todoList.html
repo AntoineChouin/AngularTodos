@@ -1,24 +1,40 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Mark Otto</a></p>
+      <a class="navbar-brand" href="#">
+        <i class="fa fa-sign-language" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</nav>
 <header>
   <h1>Todo List ( {{$ctrl.incompleteCount}} )</h1>
+  <label class="tgl hide-completed">
+
+    <input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)" class="toggle-checked" placeholder="Plucque" />
+
+    <span data-on="Enabled" data-off="Disabled">This is it</span>
+  </label>
 
   <label class="hide-completed">
-    <input type="checkbox" ng-model="$ctrl.hideCompleted" /> Hide Completed Tasks
+    <input type="checkbox" /> Hide Completed Tasks
   </label>
 
   <login-buttons></login-buttons>
- 
+
   <form class="new-task awesome-form form-inline" ng-submit="$ctrl.addTask($ctrl.newTask)" ng-show="$ctrl.currentUser">
     <div class="input-group">
-        <input ng-model="$ctrl.newTask" text="text" >
-        <label>Enter Your Email..</label>
-      </div>
+      <input ng-model="$ctrl.newTask" text="text" placheholder="">
+      <label>Entrez votre tâche</label>
+    </div>
 
   </form>
 
 </header>
 
 <ul class="list-group">
-  <li class="list-group-item" ng-repeat="task in $ctrl.tasks" ng-class="{'checked': task.checked, 'private': task.private, 'id':task}">
+  <li class="list-group-item" ng-repeat="task in $ctrl.tasks | filter:search" ng-class="{'checked': task.checked, 'private': task.private, 'id':task}">
 
     <div class="sectionColle target">
       <a class="" role="button" data-toggle="collapse" href="#{{ task._id}}" aria-expanded="false" aria-controls="collapseExample">
@@ -36,8 +52,10 @@
           <div class="btn-group" data-toggle="buttons">
 
             <label class="btn btn-primary active">
-              <input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)" class="toggle-checked" /> C'est check
+              <input type="checkbox" ng-checked="task.checked" ng-click="$ctrl.setChecked(task)" class="toggle-checked" />
+              <span> Est-ce terminé? </span>
             </label>
+
 
             <button class="toggle-private btn btn-warning" ng-click="$ctrl.setPrivate(task)" ng-show="task.owner === $ctrl.currentUser._id">
               {{task.private == true ? "Private" : "Public"}}
