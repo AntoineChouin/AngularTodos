@@ -4,15 +4,12 @@ body {
   background-image: -webkit-linear-gradient(top, #315481, #918e82 100%);
   background-image: linear-gradient(to bottom, #315481, #918e82 100%);
   background-attachment: fixed;
-  
-    margin: 0;
-  padding: 70px;
+  margin: 0;
+  padding: 70px 0 0 0 ;
 }
+
 /*http://bootsnipp.com/snippets/featured/fancy-sidebar-navigation*/
 
-img{ 
-max-width: 5%;
-max-height: 5%;}
 header {
   background: #d2edf4;
   background-image: -webkit-linear-gradient(top, #d0edf5, #e1e5f0 100%);
@@ -20,11 +17,9 @@ header {
   padding: 20px 15px 15px 15px;
   position: relative;
 }
-
 #login-buttons {
   display: block;
 }
-
 h1 {
   font-size: 1.5em;
   margin: 0;
@@ -32,13 +27,11 @@ h1 {
   display: inline-block;
   margin-right: 1em;
 }
-
-form {
-  margin-top: 10px;
-  margin-bottom: -10px;
-  position: relative;
-}
-
+//form {
+//  margin-top: 10px;
+//  margin-bottom: -10px;
+//  position: relative;
+//}
 .delete {
   float: right;
   font-weight: bold;
@@ -47,38 +40,44 @@ form {
   border: none;
   position: relative;
 }
-li.list-group-item{
+li.list-group-item {
   position: relative;
   list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
-  }
+}
+//li {
+//  .text {
+//    margin-left: 10px;
+//  }
+//  &.checked {
+//    color: #888;
+//    .text {
+//      text-decoration: line-through;
+//    }
+//  }
+//  &.private {
+//    background: #eee;
+//    border-color: #ddd;
+//  }
+//}
 
-li {
+.list-group{
+  color:aqua;
   
-  .text {
-    margin-left: 10px;
-  }
-  &.checked {
-    color: #888;
-    .text {
-      text-decoration: line-through;
-    }
-  }
-  &.private {
-    background: #eee;
-    border-color: #ddd;
+  .list-group-item{
+    float: left;
+    display: inline-block;
+  font-family: fantasy;
+    font-size: 4em;
   }
 }
-
 header .hide-completed {
   float: right;
 }
-
 .toggle-private {
   margin-left: 5px;
 }
-
 @media (max-width: 600px) {
   li {
     padding: 12px 15px;
@@ -87,17 +86,15 @@ header .hide-completed {
     width: 150px;
     clear: both;
   }
-
 }
-
-
-.sectionColle{
+.sectionColle {
   flex: initial;
   flex-direction: column;
   color: chartreuse;
 }
-i.fa{
+i.fa {
   color: black;
+  float: right;
   font-size: 2em;
 }
 // insipirée de http://codepen.io/ZheYeti/pen/qZpeYj
@@ -108,15 +105,16 @@ i.fa{
   height: auto;
   overflow: hidden;
   background: #f9f9f9;
-  
-  .input-group, input, label {
+  .input-group,
+  input,
+  label {
     display: inline-block;
   }
   .input-group {
     position: relative;
   }
-  
-  input, label {
+  input,
+  label {
     margin: 0 20px;
     padding: 20px 0;
     width: 100%;
@@ -168,11 +166,7 @@ i.fa{
     }
   }
 }
-
 section.col-md-12 input.btn {
   margin: 5% 2em;
   width: 100%;
 }
-
-
-

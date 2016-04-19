@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import todosList from '../imports/components/todosList/todoList';
 import '../imports/startup/accounts-config.js';
+import '../imports/components/navigation/navigation.js';
 
 angular.module('simple-todos', [
   angularMeteor,
@@ -12,7 +13,7 @@ angular.module('simple-todos', [
 
 function onReady() {
   angular.bootstrap(document, ['simple-todos']);
-//  angular.bootstrap(document, ['navigation']);
+  angular.bootstrap(document, ['navigation']);
 }
 
 if (Meteor.isCordova) {

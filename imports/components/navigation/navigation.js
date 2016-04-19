@@ -18,9 +18,10 @@ export default angular.module('Navigation', [
 ])
   .component('navigation', {
     templateUrl: 'imports/components/navigation/navigation.html',
-    controller: ['$scope', Naviguation]
+    controller: ['$navigation', Naviguation]
   });
 
 if (Meteor.isClient) {
-  console.log("Kings of leon")
+  console.log("Kings of leon");
+  alert("I am with the King of Leaonue");
 }
